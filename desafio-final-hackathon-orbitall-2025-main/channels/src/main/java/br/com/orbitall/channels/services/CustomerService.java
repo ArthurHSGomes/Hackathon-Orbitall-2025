@@ -31,7 +31,7 @@ public class CustomerService {
     }
     public CustomerOutput create(CustomerInput input){
         Customer customer = new Customer();
-        customer.setFullName(input.fullname());
+        customer.setFullName(input.fullName());
         customer.setEmail(input.email());
         customer.setPhone(input.phone());
 
@@ -50,7 +50,7 @@ public class CustomerService {
         Customer existingCustomer = customerRepository.findById(id)
                 .filter(Customer::isActive)
                 .orElseThrow(()-> new ResourceNotFoundException("Customer not found with ID:" + id));
-        existingCustomer.setFullName(input.fullname());
+        existingCustomer.setFullName(input.fullName());
         existingCustomer.setEmail(input.email());
         existingCustomer.setPhone(input.phone());
 
